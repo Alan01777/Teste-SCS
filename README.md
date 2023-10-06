@@ -49,4 +49,10 @@ Tela inicial:
 Tela para criar as tarefas (tasks):
 ![image](.assets/markdown-img/create-task.png)
 Tela para exibir as tarefas (tasks):
+![image](.assets/markdown-img/show-task.png)
+Tela para editar as tarefas (tasks):
 ![image](.assets/markdown-img/edit-task.png)
+
+## App em nuvem
+O app foi testado em uma VPN usando o Microsoft Azure. Para acessar o VPS via navegador use o link:
+http://52.146.5.48
