@@ -52,6 +52,8 @@ Tela para exibir as tarefas (tasks):
 ![image](.assets/markdown-img/show-task.png)
 Tela para editar as tarefas (tasks):
 ![image](.assets/markdown-img/edit-task.png)
+Banco de dados acessado pelo adminer:
+![image](.assets/markdown-img/db.png)
 
 ## App em nuvem
 O app foi testado em uma VPN usando o Microsoft Azure. Para acessar o VPS via navegador use o link:
