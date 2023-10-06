@@ -1,28 +1,24 @@
-# Subir os containers
-echo ""
-echo "Subindo os containers..."
-docker compose up -d
+#!/bin/bash
 
-# Aguardar alguns segundos para os containers iniciarem
-echo ""
-echo "Aguardando os containers serem inicializados..."
-sleep 15
+# Clone o repositório
+git clone <URL_DO_REPOSITÓRIO> nome_do_projeto
+cd nome_do_projeto
 
-# Acessar o container e executar o comando "composer install"
-echo ""
-echo "Instalando as dependências do PHP..."
-docker compose exec laravel-app composer install
-
-# Copiar o arquivo .env.example para o diretório do backend
-echo ""
-echo "Configurando o arquivo .env..."
+# Copie o arquivo .env.example
 cp .env.example .env
 
-# Executar o comando "php artisan key:generate" no container backend
-echo ""
-echo "Gerando a chave do Laravel..."
-chmod 664 .env
-docker compose exec laravel-app php artisan key:generate
-docker compose exec laravel-app php artisan migrate
+# Iniciar os contêineres Docker
+docker-compose up -d
 
-echo "Setup concluído com sucesso!"
+# Acesse o contêiner PHP e instale as dependências do Composer
+docker-compose exec laravel-app bash -c "composer install"
+
+# Gere a chave de aplicativo Laravel
+docker-compose exec laravel-app bash -c "php artisan key:generate"
+
+# Execute as migrações e seeders (se necessário)
+docker-compose exec laravel-app bash -c "php artisan migrate"
+docker-compose exec laravel-app bash -c "php artisan db:seed"
+
+# Exiba a URL de acesso à aplicação
+echo "Sua aplicação Laravel está disponível em http://localhost:8000"
