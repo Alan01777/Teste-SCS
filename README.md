@@ -33,6 +33,7 @@ DB_PORT=3306
 DB_DATABASE=Task-List
 DB_USERNAME=root
 DB_PASSWORD=root
+DB_ROOT_PASSWORD=root
 ```
 
 4. Subindo os containers. Pode ser necessário usar o super usuário (sudo) quando se executar os comandos do docker.
