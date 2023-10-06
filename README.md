@@ -24,8 +24,7 @@ cd Teste-SCS
 cp .env.example .env
 ```
 
-3. Configurando o .env:
-- Exemplo de .env:
+3. Configure o .env que foi gerado no comando anterior usando o modelo abaixo como exemplo:
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=mysql
