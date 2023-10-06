@@ -21,7 +21,7 @@ cp .env.example .env
 # Executar o comando "php artisan key:generate" no container backend
 echo ""
 echo "Gerando a chave do Laravel..."
-docker compose exec laravel-app composer dump-autoload
 docker compose exec laravel-app php artisan key:generate
+docker compose exec laravel-app php artisan migrate
 
 echo "Setup concluído com sucesso!"
