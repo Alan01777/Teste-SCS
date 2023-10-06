@@ -6,6 +6,7 @@ cd nome_do_projeto
 
 # Copie o arquivo .env.example
 cp .env.example .env
+chmod 664 .env
 
 # Iniciar os contêineres Docker
 docker compose up -d
