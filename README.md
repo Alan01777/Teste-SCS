@@ -41,6 +41,5 @@ docker-compose exec laravel-app bash -c "php artisan key:generate"
 6. Gerando as migrations necessárias. Pode ser necessário aguardar alguns instantes para até que o banco de dados esteja pronto para receber conexões.
 ```bash
 docker-compose exec laravel-app bash -c "php artisan migrate"
-docker-compose exec laravel-app bash -c "php artisan db:seed"
 
 ```
