@@ -43,3 +43,5 @@ docker compose exec laravel-app bash -c "php artisan key:generate"
 docker compose exec laravel-app bash -c "php artisan migrate"
 
 ```
+## App rodando
+![image](.assets/markdown-img/running-app.jpg)
