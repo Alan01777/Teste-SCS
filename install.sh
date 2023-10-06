@@ -1,12 +1,7 @@
 #!/bin/bash
 
-# Clone o repositório
-git clone <URL_DO_REPOSITÓRIO> nome_do_projeto
-cd nome_do_projeto
-
 # Copie o arquivo .env.example
 cp .env.example .env
-chmod 664 .env
 
 # Iniciar os contêineres Docker
 docker compose up -d

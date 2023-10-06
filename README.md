@@ -4,30 +4,29 @@
 # Sobre o APP
 A aplicação foi feita em laravel e utiliza o banco de dados Mariadb, nginx (reverse-proxy), adminer e o próprio Laravel. O objetivo do App é proporcionar ao usuário a possibilidade de criar uma lista de tarefas (task list) que pode ser modificada ou deletada do banco de dados após sua criação.
 
-# Configuração manual do APP
+# Configuração do APP
 1. Clone o repositório
 ```bash
 git clone https://github.com/Alan01777/Teste-SCS.git
 cd Teste-SCS
 ```
-2. Subindo os containers
-```bash
-docker compose up -d
-```
-3. Criando o arquivo .env do Laravel
+
+2. Crie o arquivo .env (veja a próxima seção para configurar o .env)
 ```bash
 cp .env.example .env
 ```
-4. Gerando a chave do laravel
+3. Subindo os containers
 ```bash
-docker compose exec laravel-app php artisan key:generate
-```
-5. instalando o composer
-```bash
-docker compose exec laravel-app composer install
+docker-compose up -d
 ```
 
-## .env e docker-compose.yaml
+4. 
+```bash
+docker-compose exec laravel-app bash -c "composer install"
+docker-compose exec laravel-app bash -c "php artisan key:generate"
+```
+
+## Conectando ao banco de dados
 Seus parâmetros de configuração do .env devem estar de acordo com os especificados no docker-compose.
 Por exemplo:
 - docker-compose.yaml
@@ -52,14 +51,10 @@ DB_DATABASE=Task-List
 DB_USERNAME=root
 DB_PASSWORD=root
 ```
-Por fim, faça as migration do laravel
-```bash
-docker compose exec laravel-app php artisan migrate
-```
 
-## Configuração via script
-Dê permissão de execução ao script "install.sh" e faça sua execução
+Após essa configuração:
 ```bash
-chmod +x install.sh
-./install.sh
+docker-compose exec laravel-app bash -c "php artisan migrate"
+docker-compose exec laravel-app bash -c "php artisan db:seed"
+
 ```
