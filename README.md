@@ -43,5 +43,10 @@ docker compose exec laravel-app bash -c "php artisan key:generate"
 docker compose exec laravel-app bash -c "php artisan migrate"
 
 ```
-## App rodando
-![image](.assets/markdown-img/running-app.png)
+## App rodando Localmente
+Tela inicial:
+![image](.assets/markdown-img/index.png)
+Tela para criar as tarefas (tasks):
+![image](.assets/markdown-img/create-task.png)
+Tela para exibir as tarefas (tasks):
+![image](.assets/markdown-img/edit-task.png)

@@ -3,10 +3,10 @@
 @section('title', $task->title)
 
 @section('content')
-    <p>{{ $task->description }}</p>
+    <p>Description: {{ $task->description }}</p>
 
     @if ($task->long_description)
-        <p>{{ $task->long_description }}</p>
+        <p>Long Description: {{ $task->long_description }}</p>
     @endif
 
     <p>Created at: {{ $task->created_at }}</p>
