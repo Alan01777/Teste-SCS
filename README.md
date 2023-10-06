@@ -1,5 +1,9 @@
-## Teste SCS DEVOPS
-## FRANCISCO ALAN OLIVEIRA DA COSTA ALVES
+## Teste SCS
+Nome: Francisco Alan Oliveira da Costa Alves
+Núclo: DevOps
+Faculdade: Facimp
+Curso: Sistemas de Informação
+Semestre: 4° semestre
 
 # Sobre o APP
 A aplicação foi feita em laravel e utiliza o banco de dados Mariadb, nginx (reverse-proxy), adminer e o próprio Laravel. O objetivo do App é proporcionar ao usuário a possibilidade de criar uma lista de tarefas (task list) que pode ser modificada ou deletada do banco de dados após sua criação.
