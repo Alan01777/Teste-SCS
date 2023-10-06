@@ -12,6 +12,9 @@ docker-compose exec laravel-app bash -c "composer install"
 # Gere a chave de aplicativo Laravel
 docker-compose exec laravel-app bash -c "php artisan key:generate"
 
+echo "Aguarde até que o banco de dados esteja pronto para aceitar conexões..."
+sleep(20)
+
 # Execute as migrações do banco de dados
 docker-compose exec laravel-app bash -c "php artisan migrate"
 
