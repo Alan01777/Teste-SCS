@@ -15,33 +15,8 @@ cd Teste-SCS
 ```bash
 cp .env.example .env
 ```
-3. Subindo os containers
-```bash
-docker-compose up -d
-```
 
-4. 
-```bash
-docker-compose exec laravel-app bash -c "composer install"
-docker-compose exec laravel-app bash -c "php artisan key:generate"
-```
-
-## Conectando ao banco de dados
-Seus parâmetros de configuração do .env devem estar de acordo com os especificados no docker-compose.
-Por exemplo:
-- docker-compose.yaml
-```bash
- mysql:
-        image: mariadb:10.8.3
-        container_name: "mariadb"
-        command: --default-authentication-plugin=mysql_native_password
-        restart: always
-        environment:
-            MYSQL_USER: root
-            MYSQL_PASSWORD: root
-            MYSQL_DATABASE: Task-List
-            MYSQL_ROOT_PASSWORD: root
-```
+3. Configurando o .env:
 - .env:
 ```bash
 DB_CONNECTION=mysql
@@ -52,7 +27,18 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
-Após essa configuração:
+4. Subindo os containers
+```bash
+docker-compose up -d
+```
+
+5. Instalando as dependências do laravel
+```bash
+docker-compose exec laravel-app bash -c "composer install"
+docker-compose exec laravel-app bash -c "php artisan key:generate"
+```
+
+6. Gerando as migrations necessárias
 ```bash
 docker-compose exec laravel-app bash -c "php artisan migrate"
 docker-compose exec laravel-app bash -c "php artisan db:seed"
