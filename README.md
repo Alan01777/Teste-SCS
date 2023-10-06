@@ -44,4 +44,4 @@ docker compose exec laravel-app bash -c "php artisan migrate"
 
 ```
 ## App rodando
-![image](.assets/markdown-img/running-app.jpg)
+![image](.assets/markdown-img/running-app.png)
