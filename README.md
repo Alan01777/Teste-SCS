@@ -17,7 +17,7 @@ cp .env.example .env
 ```
 
 3. Configurando o .env:
-- .env:
+- Exemplo de .env:
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -27,19 +27,19 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
-4. Subindo os containers
+4. Subindo os containers. Pode ser necessário usar o super usuário (sudo) quando se executar os comandos do docker.
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 5. Instalando as dependências do laravel
 ```bash
-docker-compose exec laravel-app bash -c "composer install"
-docker-compose exec laravel-app bash -c "php artisan key:generate"
+docker compose exec laravel-app bash -c "composer install"
+docker compose exec laravel-app bash -c "php artisan key:generate"
 ```
 
 6. Gerando as migrations necessárias. Pode ser necessário aguardar alguns instantes para até que o banco de dados esteja pronto para receber conexões.
 ```bash
-docker-compose exec laravel-app bash -c "php artisan migrate"
+docker compose exec laravel-app bash -c "php artisan migrate"
 
 ```
