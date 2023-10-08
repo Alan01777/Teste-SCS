@@ -9,10 +9,10 @@
     <p class="text-lg mb-4">Details: {{ $task->long_description }}</p>
 @endif
 
-<p class="text-lg mb-4">Created at: {{ $task->created_at->format('d/m/Y') }}</p>
+<p class="text-lg mb-4 text-slate-500">Created at: {{ $task->created_at->format('d/m/Y') }}</p>
 
 @if ($task->updated_at)
-    <p class="text-lg mb-4">Updated at: {{ $task->updated_at->format('d/m/Y') }}</p>
+    <p class="text-lg mb-4 text-slate-500">Updated at: {{ $task->updated_at->format('d/m/Y') }}</p>
 @endif
 
 <p class="text-lg mb-4">
