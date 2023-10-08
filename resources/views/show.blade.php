@@ -6,7 +6,7 @@
 <p class="text-lg mb-4">Description: {{ $task->description }}</p>
 
 @if ($task->long_description)
-    <p class="text-lg mb-4">Long Description: {{ $task->long_description }}</p>
+    <p class="text-lg mb-4">Details: {{ $task->long_description }}</p>
 @endif
 
 <p class="text-lg mb-4">Created at: {{ $task->created_at->format('d/m/Y') }}</p>

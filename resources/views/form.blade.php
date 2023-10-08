@@ -41,7 +41,7 @@
         </div>
 
         <div class="mb-4">
-            <label for="long_description" class="block text-gray-700 text-sm font-bold mb-2">Long description</label>
+            <label for="long_description" class="block text-gray-700 text-sm font-bold mb-2">Details</label>
             <textarea name="long_description" id="long_description" rows="8"
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ $task->long_description ?? old('long_description') }}</textarea>
             @error('long_description')
