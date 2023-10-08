@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/tasks', function ()  {
     return view('index', [
-        'tasks' => Task::latest()->get()
+        'tasks' => Task::latest()->paginate()
     ]);
 })->name('tasks.index');
 
@@ -61,3 +61,8 @@ Route::delete('task/{task}', function(Task $task) {
     $task->delete();
     return redirect()->route('tasks.index')->with('status', 'Task Deleted!');
 })->name('tasks.destroy');
+
+Route::put('task/{task}/complete', function(Task $task) {
+    $task->toggleComplete();
+    return redirect()->route('tasks.show', ['task' => $task->id])->with('status', 'Status changed!');
+})->name('tasks.complete');

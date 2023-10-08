@@ -44,7 +44,8 @@
     </div>
 
     <div>
-        <button type="submit">
+        <button class="mb-4 mt-4 font-medium text-gray-700 bord outline outline-offset-2 outline-2 rounded-full bg-gray-200 hover:bg-gray-300"
+        type="submit">
             @isset($task)
                 Update Task
             @else
