@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\TaskRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Task;
@@ -28,51 +29,35 @@ Route::get('/tasks', function ()  {
 
 Route::view('/task/create', 'create')->name('tasks.create');
 
-Route::get('/task/{id}/edit', function ($id) {
+Route::get('/task/{task}/edit', function (Task $task) {
     return view('edit', [
-        'task' => Task::findOrFail($id)
+        'task' => $task
     ]);
 })->name('tasks.edit');
 
-Route::get('/task/{id}', function ($id) {
+Route::get('/task/{task}', function (Task $task) {
     return view('show', [
-        'task' => Task::findOrFail($id)
+        'task' => $task
     ]);
 })->name('tasks.show');
-
 
 Route::fallback(function () {
     return view('404');
 })->name('tasks.404');
 
-Route::post('/tasks', function(Request $request) {
-    $data = $request->validate([
-        'title' => 'required|max:255',
-        'description' => 'required',
-        'long_description' => 'required'
-    ]);
+//======================================================================//
 
-    $task = new Task;
-    $task->title = $data['title'];
-    $task->description = $data['description'];
-    $task->long_description = $data['long_description'];
-    $task->save();
-
-    return redirect()->route('tasks.show', ['id' => $task->id])->with('status', 'Task created!');
+Route::post('/tasks', function(TaskRequest $request) {
+    $task = Task::create( $request->validated());
+    return redirect()->route('tasks.index')->with('status', 'Task created!');
 })->name('tasks.store');
 
-Route::put('/tasks/{id}', function($id, Request $request) {
-    $data = $request->validate([
-        'title' => 'required|max:255',
-        'description' => 'required',
-        'long_description' => 'required'
-    ]);
-
-    $task = Task::findOrfail($id);
-    $task->title = $data['title'];
-    $task->description = $data['description'];
-    $task->long_description = $data['long_description'];
-    $task->save();
-
-    return redirect()->route('tasks.show', ['id' => $task->id])->with('status', 'Task Updated!');
+Route::put('/tasks/{task}', function(Task $task, TaskRequest $request) {
+    $task->update($request->validated());
+    return redirect()->route('tasks.show', ['task' => $task->id])->with('status', 'Task Updated!');
 })->name('tasks.update');
+
+Route::delete('task/{task}', function(Task $task) {
+    $task->delete();
+    return redirect()->route('tasks.index')->with('status', 'Task Deleted!');
+})->name('tasks.destroy');

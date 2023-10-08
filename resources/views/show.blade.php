@@ -22,6 +22,18 @@
     @endif
 
     <div>
-        <a href="{{ route('tasks.edit', ['id' => $task->id]) }}">Edit Task</a>
+        <form action="{{ route('tasks.edit', ['task' => $task->id]) }}" method="GET">
+            @csrf
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+
+
+    <div>
+        <form action="{{ route('tasks.destroy', ['task' => $task->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Delete</button>
+        </form>
     </div>
 @endsection
