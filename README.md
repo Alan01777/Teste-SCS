@@ -1,7 +1,7 @@
 ## Teste SCS
 Nome: Francisco Alan Oliveira da Costa Alves
 
-Núclo: DevOps
+Núcleo: DevOps
 
 Faculdade: Facimp
 
